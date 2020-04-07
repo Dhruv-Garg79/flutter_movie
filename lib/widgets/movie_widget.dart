@@ -19,45 +19,7 @@ class MovieWidget extends StatelessWidget {
         },
         child: Stack(
           children: <Widget>[
-            Positioned.fill(
-              left: imageWidth - 2,
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: Dimensions.medium),
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: Dimensions.big,
-                    top: Dimensions.big,
-                    bottom: Dimensions.medium,
-                    right: Dimensions.small
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        movie.title,
-                        textAlign: TextAlign.start,
-                        maxLines: 2,
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Released on : ${movie.release_date}',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top : 8.0),
-                        child: Text(
-                          movie.overview,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            buildSideCard(imageWidth),
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
@@ -84,5 +46,47 @@ class MovieWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget buildSideCard(double imageWidth) {
+    return Positioned.fill(
+            left: imageWidth - 2,
+            child: Card(
+              margin: EdgeInsets.symmetric(vertical: Dimensions.medium),
+              elevation: 4,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: Dimensions.big,
+                  top: Dimensions.big,
+                  bottom: Dimensions.medium,
+                  right: Dimensions.small
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      movie.title,
+                      textAlign: TextAlign.start,
+                      maxLines: 2,
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Released on : ${movie.release_date}',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top : 8.0),
+                      child: Text(
+                        movie.overview,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
   }
 }

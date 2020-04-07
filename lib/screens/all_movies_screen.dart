@@ -39,9 +39,9 @@ class AllMoviesScreen extends StatelessWidget {
   Widget buildMovieList(List<Movie> list) {
     return Container(
       margin: EdgeInsets.only(
-        top: Dimensions.all,
-        left: Dimensions.all,
-        right: Dimensions.all,
+        top: Dimensions.medium,
+        left: Dimensions.medium,
+        right: Dimensions.medium,
       ),
       child: ListView.builder(
         itemBuilder: (ctx, i) => MovieWidget(list[i]),
