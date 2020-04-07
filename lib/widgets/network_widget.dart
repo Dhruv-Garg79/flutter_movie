@@ -12,10 +12,19 @@ class NetworkWidget extends StatelessWidget {
     return isOnline
         ? child
         : Container(
-            alignment: Alignment.center,
-            child: Text(
-              'No Network! please check your internet connection.',
-              textAlign: TextAlign.center,
+          alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.signal_wifi_off,
+                  size: MediaQuery.of(context).size.width * 0.7,
+                ),
+                Text(
+                  'No Network! please check your internet connection.',
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           );
   }
